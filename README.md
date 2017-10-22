@@ -1,11 +1,18 @@
 # HW1
-數據導入:將數值資料讀近來  
-`df = pd.read_csv('./train-v3.csv')`  
-`dataset = df.values`    
+數據導入:將數值資料讀近來
+
+`df = pd.read_csv('./train-v3.csv')`
+
+`dataset = df.values`  
+
 `df2 = pd.read_csv('./valid-v3.csv')` 
+
 `dataset2 = df2.values`   
+
 `df3 = pd.read_csv('./test-v3.csv')`   
+
 `dataset3 = df3.values`  
+
 
 資料處理與正規化:將認為需要的資料作預處理: 我是將建構年份與現在年份做相減，帶出屋齡後再將資料套回去做訓練
 Z=time.strftime("%Y")
