@@ -44,22 +44,28 @@
 `model.add(Dense(1, init='normal'))`  
 `model.compile(loss='MAE', optimizer='adam')`  
 
+訓練模型  
+透過fit函數進行模型訓練，並將valid data放進去驗證  
+`train_history=model.fit(X,Y,batch_size=32,epochs=220,validation_data=(X_vaild,Y_vaild),verbose=2)`  
 
-訓練模型
-透過fit函數進行模型訓練，並將valid data放進去驗證
-train_history=model.fit(X,Y,batch_size=32,epochs=220,validation_data=(X_vaild,Y_vaild),verbose=2)
+預測結果  
+`Y_pre=model.predict(X_test)`  
 
-預測結果
-Y_pre=model.predict(X_test)
+再將其數據存檔  
+`np.savetxt('Y_pre_10211048.csv',Y_pre, delimiter=',')`   
 
-再將其數據存檔
-np.savetxt('Y_pre_10211048.csv',Y_pre, delimiter=',')
-
-透過verbose=2的參數應用，觀察訓練期間loss的變化
-![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/1.PNG)
-畫出EPOCH次與Train分數的關係圖，觀察訓練期間大約在何時可能出現overfitting，幫助我設定EPOCH次數調整的依據
-![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/22.PNG)
-Epoch=10，觀察在不同次數下，評估的準確度
-![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/3.PNG)
-Epoch=220，可以看出當Epoch=220大部分點靠近線的距離比Epoch=10 更近
+透過verbose=2的參數應用，觀察訓練期間loss的變化  
+![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/1.PNG)  
+畫出EPOCH次與Train分數的關係圖，觀察訓練期間大約在何時可能出現overfitting，幫助我設定EPOCH次數調整的依據  
+![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/22.PNG)  
+Epoch=10，觀察在不同次數下，評估的準確度  
+![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/3.PNG)  
+Epoch=220，可以看出當Epoch=220大部分點靠近線的距離比Epoch=10 更近  
 ![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/4.PNG)
+
+
+
+
+
+
+
