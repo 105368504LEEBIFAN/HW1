@@ -6,30 +6,28 @@
 `df2 = pd.read_csv('./valid-v3.csv')`  
 `dataset2 = df2.values`  
 `df3 = pd.read_csv('./test-v3.csv')`  
-`dataset3 = df3.values`   
+`dataset3 = df3.values`       
+
+資料處理與正規化:將認為需要的資料作預處理: 我是將建構年份與現在年份做相減，帶出屋齡後再將資料套回去做訓練  
+`Z=time.strftime("%Y")`  
+`A=int(Z)-df['yr_built'].values`  
+`df['yr_built'] = A`  
+`B=int(Z)-df2['yr_built'].values`  
+`df2['yr_built'] = B`  
+`c=int(Z)-df3['yr_built'].values`  
+`df3['yr_built'] = c`  
+  
+ 將認為不需要的資料drop起來: 所有資料不見得都適用，故我將自己認為不適用的資料提出，以避免影響訓練結果
+
+
+`
 
 
 
 
 
 
-`dataset = df.values`  
-`df2 = pd.read_csv('./valid-v3.csv')` 
-`dataset2 = df2.values`   
-`df3 = pd.read_csv('./test-v3.csv')`   
-`dataset3 = df3.values`  
 
-
-資料處理與正規化:將認為需要的資料作預處理: 我是將建構年份與現在年份做相減，帶出屋齡後再將資料套回去做訓練
-Z=time.strftime("%Y")
-A=int(Z)-df['yr_built'].values
-df['yr_built'] = A
-B=int(Z)-df2['yr_built'].values
-df2['yr_built'] = B
-c=int(Z)-df3['yr_built'].values
-df3['yr_built'] = c
-
-將認為不需要的資料drop起來: 所有資料不見得都適用，故我將自己認為不適用的資料提出，以避免影響訓練結果
 X=df.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
 Y=df['price'].values
 X_vaild=df2.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
