@@ -1,6 +1,12 @@
 # HW1  
-程式的區塊方塊圖  
-![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/4.PNG)  
+目的: 房價預測  
+總共分為兩個檔案  
+train.py為訓練與儲存模型  
+test.py 呼叫訓練好的模型以及儲存預測好的CSV檔  
+train.py 中給的train/valid/test data檔名為train-v3.csv/valid-v3.csv/test-v3.csv 並與檔案放於相同目錄下  
+
+程式的區塊方塊圖  
+![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/5.PNG)  
 
 數據導入:將數值資料讀進來
 
