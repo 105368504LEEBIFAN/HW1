@@ -2,15 +2,10 @@
 數據導入:將數值資料讀近來
 
 `df = pd.read_csv('./train-v3.csv')`
-
 `dataset = df.values`  
-
 `df2 = pd.read_csv('./valid-v3.csv')` 
-
 `dataset2 = df2.values`   
-
 `df3 = pd.read_csv('./test-v3.csv')`   
-
 `dataset3 = df3.values`  
 
 
