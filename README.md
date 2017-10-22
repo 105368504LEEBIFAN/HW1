@@ -15,33 +15,22 @@
 `B=int(Z)-df2['yr_built'].values`  
 `df2['yr_built'] = B`  
 `c=int(Z)-df3['yr_built'].values`  
-`df3['yr_built'] = c`
+`df3['yr_built'] = c`  
 
-     
-      
-    
-     
-     
-   
-    
- 將認為不需要的資料drop起來: 所有資料不見得都適用，故我將自己認為不適用的資料提出，以避免影響訓練結果
-
-
-`
-
-
-
-
-
-
-
-X=df.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
-Y=df['price'].values
-X_vaild=df2.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
-Y_vaild=df2['price'].values
-X_test=df3.drop(['id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
+將認為不需要的資料drop起來: 所有資料不見得都適用，故我將自己認為不適用的資料提出，以避免影響訓練結果  
+`X=df.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values`   
+`Y=df['price'].values`  
+`X_vaild=df2.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values`  
+`Y_vaild=df2['price'].values`  
+`X_test=df3.drop(['id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values`     
 
 資料正規化: 
+
+
+
+
+
+
  1. 將train data 透過scale函數做正規化處理
  2. valid data 與 test data 則是透過 減掉train data的平均值在除以其標準差
 mean=np.mean(X,axis=0)
