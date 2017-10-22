@@ -1,5 +1,5 @@
 # HW1
-數據導入:將數值資料讀近來
+數據導入:將數值資料讀進來
 
 `df = pd.read_csv('./train-v3.csv')`  
 `dataset = df.values`  
