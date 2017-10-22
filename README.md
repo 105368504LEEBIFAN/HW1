@@ -7,7 +7,6 @@ train.py 中給的train/valid/test data檔名為train-v3.csv/valid-v3.csv/test-v
 
 程式的區塊方塊圖  
 ![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/5.PNG)  
-
 數據導入:將數值資料讀進來
 
 `df = pd.read_csv('./train-v3.csv')`  
