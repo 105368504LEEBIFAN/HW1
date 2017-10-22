@@ -22,20 +22,7 @@ dataset2 = df2.values
 df3 = pd.read_csv('./test-v3.csv')
 dataset3 = df3.values
 Z=time.strftime("%Y")
-#print "-----------------------------------"
-#print df.drop(['price'], axis=1).values
-#rint "-----------------------------------"
-'''
-X = dataset[:, 0:22]
-Y = dataset[:, 1]
-X_vaild = dataset2[:, 0:21]
-Y_vaild = dataset2[:, 1]
-X_test = dataset3[:, 0:21]
 
-print "-----------------------------------"
-print type(df.drop(['price','id'],axis=1).values)
-print "-----------------------------------"
-'''
 print 'Z=',Z
 
 A=int(Z)-df['yr_built'].values
@@ -45,7 +32,7 @@ df2['yr_built'] = B
 c=int(Z)-df3['yr_built'].values
 df3['yr_built'] = c
 X=df.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
-#X=df['yr_built'].vaures
+
 Y=df['price'].values
 X_vaild=df2.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values
 Y_vaild=df2['price'].values
