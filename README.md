@@ -20,36 +20,30 @@
 將認為不需要的資料drop起來: 所有資料不見得都適用，故我將自己認為不適用的資料提出，以避免影響訓練結果  
 `X=df.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values`   
 `Y=df['price'].values`  
-`X_vaild=df2.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values`  
-`Y_vaild=df2['price'].values`  
+`X_vaild=df2.drop(['price','id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values` `Y_vaild=df2['price'].values`  
 `X_test=df3.drop(['id','sale_yr','sale_month','sale_day','waterfront','yr_renovated','zipcode'],axis=1).values`     
 
-資料正規化: 
+資料正規化:   
+1. 將train data 透過scale函數做正規化處理  
+2. valid data 與 test data 則是透過 減掉train data的平均值在除以其標準差  
+`mean=np.mean(X,axis=0)`  
+`std=np.std(X,axis=0)`  
+`X=preprocessing.scale(X)`  
+`X_vaild=(X_vaild-mean)/std`  
+`X_test=(X_test-mean)/std`  
 
+網路模型建構:   
+層數架構  1:32:128:256:128:32:1  
+`model = Sequential()`  
+`model.add(Dense(32, input_dim=X.shape[1], init='normal', activation='relu'))`  
+`model.add(Dense(128, input_dim=32, init='normal', activation='relu'))`  
+`model.add(Dense(256, input_dim=128, init='normal', activation='relu'))`  
+`model.add(Dense(128, input_dim=256, init='normal', activation='relu'))`  
+`model.add(Dense(32, input_dim=128,init='normal', activation='relu'))`  
+`model.add(Dense(X.shape[1], input_dim=32, init='normal', activation='relu'))`  
+`model.add(Dense(1, init='normal'))`  
+`model.compile(loss='MAE', optimizer='adam')`  
 
-
-
-
-
- 1. 將train data 透過scale函數做正規化處理
- 2. valid data 與 test data 則是透過 減掉train data的平均值在除以其標準差
-mean=np.mean(X,axis=0)
-std=np.std(X,axis=0)
-X=preprocessing.scale(X)
-X_vaild=(X_vaild-mean)/std
-X_test=(X_test-mean)/std 
-
-網路模型建構:
-層數架構  1:32:128:256:128:32:1
-model = Sequential()
-model.add(Dense(32, input_dim=X.shape[1], init='normal', activation='relu'))
-model.add(Dense(128, input_dim=32, init='normal', activation='relu'))
-model.add(Dense(256, input_dim=128, init='normal', activation='relu'))
-model.add(Dense(128, input_dim=256, init='normal', activation='relu'))
-model.add(Dense(32, input_dim=128,init='normal', activation='relu'))
-model.add(Dense(X.shape[1], input_dim=32, init='normal', activation='relu'))
-model.add(Dense(1, init='normal'))
-model.compile(loss='MAE', optimizer='adam')
 
 訓練模型
 透過fit函數進行模型訓練，並將valid data放進去驗證
