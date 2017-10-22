@@ -1,6 +1,8 @@
 # HW1
-數據導入:將數值資料讀近來＜/br＞
-df = pd.read_csv('./train-v3.csv')＜/br＞
+數據導入:將數值資料讀近來
+＜/br＞
+df = pd.read_csv('./train-v3.csv')
+＜/br＞
 dataset = df.values＜/br＞
 df2 = pd.read_csv('./valid-v3.csv')＜/br＞
 dataset2 = df2.values＜/br＞
