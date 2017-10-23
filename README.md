@@ -60,7 +60,7 @@ train.py 中給的train/valid/test data檔名為train-v3.csv/valid-v3.csv/test-v
 預測結果  
 `Y_pre=model.predict(X_test)`  
 
-再將其數據存檔  
+再將其數據存檔，
  `for i in range(len(df3['id'])):`  
  `Y_PRE.append(i+1)`  
  `Y_PRE_Tran=np.array(Y_PRE)`  
