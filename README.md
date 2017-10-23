@@ -60,8 +60,9 @@ train.py 中給的train/valid/test data檔名為train-v3.csv/valid-v3.csv/test-v
 預測結果  
 `Y_pre=model.predict(X_test)`  
 
-再將其數據存檔，
- `for i in range(len(df3['id'])):`  
+再將其數據存檔，存檔之前先將資料作預處理來符合上傳的檔案格式  
+我適用FOR迴圈跑，長度設為測試資料的長度，並將資料作轉至後與預測的金額做結合，用columns給兩欄的title，最後輸出檔案  
+ `for i in range(len(df3['id'])):`  
  `Y_PRE.append(i+1)`  
  `Y_PRE_Tran=np.array(Y_PRE)`  
  `Y_PRE_Tran=Y_PRE_Tran.reshape((-1,1))`  
