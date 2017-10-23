@@ -61,17 +61,15 @@ train.py 中給的train/valid/test data檔名為train-v3.csv/valid-v3.csv/test-v
 `Y_pre=model.predict(X_test)`  
 
 再將其數據存檔  
- `for i in range(len(df3['id'])):
-    Y_PRE.append(i+1)
-Y_PRE_Tran=np.array(Y_PRE)
-Y_PRE_Tran=Y_PRE_Tran.reshape((-1,1))
-
-combine=np.append(Y_PRE_Tran,Y_pre,1)
-combine3=pd.DataFrame(combine)
-combine3.columns=['id','price']
-combine3.shift()[1:]
-combine3.to_csv('Y_pre_10230700.csv',index=False,float_format='%.0f')`
-`np.savetxt('Y_pre_10211048.csv',Y_pre, delimiter=',')`   
+ `for i in range(len(df3['id'])):`  
+ `Y_PRE.append(i+1)`  
+ `Y_PRE_Tran=np.array(Y_PRE)`  
+ `Y_PRE_Tran=Y_PRE_Tran.reshape((-1,1))`  
+ `combine=np.append(Y_PRE_Tran,Y_pre,1)`  
+ `combine3=pd.DataFrame(combine)`  
+ `combine3.columns=['id','price']`  
+ `combine3.shift()[1:]`  
+ `combine3.to_csv('Y_pre_10230700.csv',index=False,float_format='%.0f')`
 
 透過verbose=2的參數應用，觀察訓練期間loss的變化  
 ![image](https://raw.githubusercontent.com/105368504LEEBIFAN/HW1/2bc278740c4b65535b3369cb2fcdfbddff51bd3d/1.PNG)  
